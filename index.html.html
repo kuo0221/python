@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>萌萌 GIT 小學堂 🐣</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#FFF8FB; --card:#FFF; --accent:#FFB6C1; --accent2:#FFD6A5; --text:#3b3750;
+      --shadow: 0 6px 18px rgba(59,55,80,0.08);
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Nunito',system-ui,-apple-system,Segoe UI,Roboto,Arial; background:linear-gradient(180deg,var(--bg),#FFF); color:var(--text); margin:0; padding:32px}
+    .wrap{max-width:960px;margin:0 auto}
+    header{display:flex;align-items:center;gap:18px}
+    .logo{width:88px;height:88px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:var(--shadow)}
+    h1{font-size:28px;margin:0}
+    p.lead{margin:6px 0 22px;color:#5b5470}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .card{background:var(--card);padding:16px;border-radius:14px;box-shadow:var(--shadow)}
+    .cmd-title{display:flex;align-items:center;gap:10px;font-weight:800}
+    .chip{background:#FFF2F6;border-radius:8px;padding:6px 10px;font-weight:700}
+    code{background:#f6f7fb;padding:6px 8px;border-radius:8px;display:inline-block}
+
+    .examples{margin-top:10px}
+    button.copy{margin-top:10px;border:none;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,#ffd6d6,#ffe6b3);cursor:pointer}
+
+    footer{margin-top:22px;text-align:center;color:#6a6076}
+
+    /* download area */
+    .download{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:18px}
+    .btn{padding:10px 16px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,#ffb6c1,#ffd6a5)}
+    .btn-outline{background:transparent;border:2px dashed #ffd6a5}
+
+    /* cute footer icon */
+    .sparkles{font-size:22px;margin-left:8px}
+
+    /* responsive small */
+    @media (max-width:420px){body{padding:18px}.logo{width:68px;height:68px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">🐣</div>
+      <div>
+        <h1>萌萌 GIT 小學堂 <span class="sparkles">✨</span></h1>
+        <p class="lead">用最溫柔的方式學會 <code>add</code>、<code>commit</code>、<code>push</code> 等 Git 指令。按下「Copy」就能複製範例到你的終端機！</p>
+      </div>
+    </header>
+
+    <main class="grid" style="margin-top:18px">
+      <!-- ADD -->
+      <article class="card">
+        <div class="cmd-title"><div class="chip">1</div><div>git add</div></div>
+        <p>把檔案放進暫存區（stage），代表「我想把它納入下一次 commit」。</p>
+        <div class="examples">
+          <div>範例：<code>git add hello.txt</code></div>
+          <button class="copy" data-cmd="git add hello.txt">Copy</button>
+        </div>
+      </article>
+
+      <!-- COMMIT -->
+      <article class="card">
+        <div class="cmd-title"><div class="chip">2</div><div>git commit</div></div>
+        <p>把暫存區的改動保存為一個新版本（commit），需要一個描述性的訊息。</p>
+        <div class="examples">
+          <div>範例：<code>git commit -m "Add greeting file"</code></div>
+          <button class="copy" data-cmd="git commit -m &quot;Add greeting file&quot;">Copy</button>
+        </div>
+      </article>
+
+      <!-- PUSH -->
+      <article class="card">
+        <div class="cmd-title"><div class="chip">3</div><div>git push</div></div>
+        <p>把本地的 commit 上傳到遠端（如 GitHub），讓別人也看得到你的改動。</p>
+        <div class="examples">
+          <div>範例：<code>git push origin main</code></div>
+          <button class="copy" data-cmd="git push origin main">Copy</button>
+        </div>
+      </article>
+
+      <!-- PULL -->
+      <article class="card">
+        <div class="cmd-title"><div class="chip">4</div><div>git pull</div></div>
+        <p>從遠端抓取最新改動並合併到你的分支，相當於 <code>git fetch</code> + <code>git merge</code>。</p>
+        <div class="examples">
+          <div>範例：<code>git pull origin main</code></div>
+          <button class="copy" data-cmd="git pull origin main">Copy</button>
+        </div>
+      </article>
+
+      <!-- REVERT -->
+      <article class="card">
+        <div class="cmd-title"><div class="chip">5</div><div>git revert</div></div>
+        <p>用新的 commit 來「還原」指定的舊 commit（安全且不改變歷史）。</p>
+        <div class="examples">
+          <div>範例：<code>git revert &lt;commit-hash&gt;</code></div>
+          <button class="copy" data-cmd="git revert <commit-hash>">Copy</button>
+        </div>
+      </article>
+
+      <!-- CHECK OUT -->
+      <article class="card">
+        <div class="cmd-title"><div class="chip">6</div><div>git checkout</div></div>
+        <p>切換分支或檢視某個 commit 的內容（注意：切換到舊 commit 會進入分離 HEAD）。</p>
+        <div class="examples">
+          <div>範例：<code>git checkout feature-branch</code></div>
+          <button class="copy" data-cmd="git checkout feature-branch">Copy</button>
+        </div>
+      </article>
+
+      <!-- MERGE -->
+      <article class="card">
+        <div class="cmd-title"><div class="chip">7</div><div>git merge</div></div>
+        <p>把另一個分支的改動合併到目前分支。若有衝突需要手動解決後再 commit。</p>
+        <div class="examples">
+          <div>範例：<code>git merge feature-branch</code></div>
+          <button class="copy" data-cmd="git merge feature-branch">Copy</button>
+        </div>
+      </article>
+
+    </main>
+
+    <section style="margin-top:18px;display:flex;gap:18px;flex-direction:column">
+      <div class="card">
+        <h3 style="margin:0 0 8px 0">小小備註 📝</h3>
+        <ul>
+          <li><strong>git status</strong>：看現在暫存區與工作目錄狀態，學 GIT 的好朋友。</li>
+          <li><strong>git log</strong>：檢視 commit 歷史。</li>
+          <li>如果你看到 "MERGET" 這類單字，很可能是打錯，正確指令應為 <code>git merge</code>。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 8px 0">下載網頁原始碼</h3>
+        <div class="download">
+          <button id="downloadBtn" class="btn btn-primary">下載 HTML 檔案</button>
+          <button id="copyAllBtn" class="btn btn-outline">複製整份原始碼</button>
+        </div>
+        <p style="margin:8px 0 0 0;color:#6a6076;">下載後可直接在瀏覽器打開或放到 GitHub Pages 作為教學頁面。</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>祝你 Git 學習愉快！如果要我把整個專案改成互動教學（模擬 commit / conflict 練習），跟我說一聲 🐥</div>
+    </footer>
+  </div>
+
+  <script>
+    // copy button
+    document.querySelectorAll('button.copy').forEach(b=>{
+      b.addEventListener('click',()=>{
+        navigator.clipboard.writeText(b.dataset.cmd).then(()=>{
+          b.textContent='Copied ✓'
+          setTimeout(()=>b.textContent='Copy',900)
+        })
+      })
+    })
+
+    // download whole file
+    const downloadBtn = document.getElementById('downloadBtn')
+    downloadBtn.addEventListener('click',()=>{
+      const html = document.documentElement.outerHTML
+      const blob = new Blob([html],{type:'text/html;charset=utf-8'})
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'cute-git-tutorial.html'
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      URL.revokeObjectURL(url)
+    })
+
+    // copy all source
+    document.getElementById('copyAllBtn').addEventListener('click',async()=>{
+      const html = document.documentElement.outerHTML
+      try{
+        await navigator.clipboard.writeText(html)
+        alert('已將整份原始碼複製到剪貼簿！')
+      }catch(e){
+        alert('複製失敗，請手動另存網頁為 HTML。')
+      }
+    })
+  </script>
+</body>
+</html>
